@@ -4,3 +4,5 @@ In charge of developing MercedEnergy.com website, and software. Members will lea
 # Not Yet Established 
 ## Skills
 JavaScript, C++, Node.js, React.js, Databases, Python, Java 
+# About 
+Web Development, Full-Stack
