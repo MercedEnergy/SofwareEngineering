@@ -4,8 +4,9 @@ In charge of developing MercedEnergy.com website, and software. Members will lea
 Meetings 
 - Updates 
 - General Inquiries 
-- Learning <br> 
-Software Documentation/Scrum <br> 
+- Learning  
+Software Documentation
+- Agile Framework 
 - Assignment of tasks
 -- Product Owner, Development Team 
 -- All teams share management responsibilities 
