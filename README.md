@@ -1,11 +1,11 @@
 # SofwareEngineeringTeam
 In charge of developing MercedEnergy.com website, and software. Members will learn Full-Stack development. 
 # To Be Updated 
-Meetings 
+## Meetings 
 - Updates 
 - General Inquiries 
 - Learning  
-Software Documentation
+## Software Documentation
 - Agile Framework 
 - Assignment of tasks
 -- Product Owner, Development Team 
