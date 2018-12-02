@@ -27,7 +27,7 @@ Web Development, Full-Stack
 - Minor projects are to be organized by date of delivery. 
 - Major projects to be organized by name of project 
   * Software Documentation
-    - Methodolgy
+    - Methodology
     - Software Requirement Specification
   * Software Name 
     - Able to be deployed
