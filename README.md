@@ -21,11 +21,15 @@ JavaScript, C++, Node.js, React.js, Databases, Python, Java
 Web Development, Full-Stack
 ## Organizational Conventions 
 ### Folders 
-- Meetings 
-  - Organized by date of delivery
-- Projects: 
-  - Organized by name of project 
-    * Software Documentation 
-    * Software Name 
-      - Able to be deployed. Consist of all dependencies, and configuration files.  
+#### Meetings 
+- Organized by date of delivery
+#### Projects: 
+- Organized by name of project 
+  * Software Documentation
+    - Methodolgy
+    - Software Requirement Specification
+  * Software Name 
+    - Able to be deployed
+    - Consist of all dependencies
+    - Configuration files.  
 - docs
