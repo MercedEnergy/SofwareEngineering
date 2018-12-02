@@ -32,4 +32,5 @@ Web Development, Full-Stack
     - Able to be deployed
     - Consist of all dependencies
     - Configuration files.  
-- docs
+#### docs
+- Web Page for Software Engineering Team 
