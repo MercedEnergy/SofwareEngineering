@@ -19,3 +19,4 @@ January 2019
 JavaScript, C++, Node.js, React.js, Databases, Python, Java 
 # About 
 Web Development, Full-Stack
+## Organizational Conventions 
