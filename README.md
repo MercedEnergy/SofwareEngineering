@@ -24,9 +24,9 @@ Web Development, Full-Stack
 #### Meetings 
 - Organized by date of delivery
 #### Projects: 
-- Meetings Projects
+- Meetings Projects <br> 
 Minor projects are to be organized by date of delivery. 
-* Software Documentation
+  * Software Documentation
     - Methodology
     - Software Requirement Specification (?)
   * Software Name 
