@@ -1,6 +1,5 @@
 # Sofware Engineering Team
 In charge of developing MercedEnergy.com website, and software. Members will learn Full-Stack development. 
-# To Be Updated 
 ## Meetings 
 - Updates 
 - General Inquiries 
