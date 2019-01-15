@@ -42,3 +42,7 @@ Minor projects are to be organized by date of delivery.
     - Configuration files.  
 #### docs
 - Web Page for Software Engineering Team 
+## Members 
+- Ramiro Gonzalez 
+- Steven Gonzalez 
+- Sidharth Babu
