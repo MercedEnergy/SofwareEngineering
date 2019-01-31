@@ -15,7 +15,7 @@ Projects <br>
 # Established 
 January 2019
 ## Skills
-JavaScript, C++, Node.js, React.js, Databases, Python, Java, HTML, CSS
+JavaScript, C++, Node.js, React.js, Databases, Python, Java, HTML, CSS, Virtualbox, Linux Command Line
 # About 
 Web Development, Full-Stack
 ## Organizational Conventions 
