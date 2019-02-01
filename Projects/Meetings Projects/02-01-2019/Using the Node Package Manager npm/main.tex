@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+
+\usepackage{physics}
+\usepackage{siunitx} 
+\usepackage{enumerate} 
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
+\begin{document}
+
+\title{Using the Node Package Manager (npm) }
+\author{Ramiro Gonzalez}
+\date{February 01, 2019}
+
+\maketitle
+
+\begin{Objective}
+	At the end of this project one should be able install, update, and remove packages using npm (node package manager). You should be able to understand how to reuse code, install packages using npm, and use those packages. 
+\end{Objective}
+
+\section*{Background}
+  We will be working with the Linux Command Line and VIM or NANO (text editor). It is assumed that you are running a Ubuntu Distro (Linux Distribution) and have installed node. Reusing code is important in developing programs and npm provides tools and packages; functionalities that have been created by other developers. We assume you are able to get around the Linux file system. Inside the same folder do the following. The version of node used here is v8.11.4 
+\section*{Material}
+ \color{black}
+\begin{todolist}
+    \item Computer 
+    \item Internet Connection
+    \item Ubuntu Linux (Linux Distribution) 
+\end{todolist}
+\section{Tasks}
+Complete the following tasks. Note that different operating systems may require different steps. 
+\section*{Task 1}
+This task will introduce the concept of code reuses. Create a module (small units of independent, reusable code.) and access it through other programs (reuse). 
+    \begin{todolist}
+        \item Create a module 
+        \begin{enumerate}
+            \item Create a JavaScript file named moduleCreate.js . The touch command only creates the file and nothing more. 
+            \begin{lstlisting}
+            $ touch moduleCreate.js
+            \end{lstlisting}
+            \item Edit the file moduleCreate.js. Vim opens the file for editing and also creates the file if it does not exist. 
+            \begin{lstlisting}
+            $ vim moduleCreate.js
+            \end{lstlisting}
+            Add the following lines to moduleCreate.js 
+            \begin{lstlisting}
+             exports.myText = "You did it!" 
+            \end{lstlisting}
+        \end{enumerate}
+        \item Reuse module. 
+        \begin{enumerate}
+            \item Create a JavaScritp file named moduleUse.js 
+            \begin{lstlisting}
+            $ touch moduleUse.js 
+            \end{lstlisting}
+            \item Edit  file moduleUse.js 
+            \begin{lstlisting} 
+            $ vim moduleUSe.js 
+            \end{lstlisting}
+            \item Add the following lines to moduleUse.js 
+            \begin{lstlisting}
+            var myModule = require("./moduleCreate.js")
+            console.log(myModule.myText)
+            \end{lstlisting}
+            \item Run moduleUse.js 
+            \begin{lstlisting}
+            $ node moduleUse.js 
+            \end{lstlisting}
+        \end{enumerate}
+        If the output is "You did it" then this task has been succesffuly completed. 
+    \end{todolist}
+\section*{Task 2} 
+Creating your own modules has its limitations. Developers around the world have created their modules and packaged them. NPM (node package manager) is used to install packages, such packages are a collection of useful modules. We will install the popular packages. This link provides a list of the most popular packages \href{https://www.npmjs.com/browse/depended}{https://www.npmjs.com/browse/depended}.
+\begin{todolist}
+    \item Installing lodash 
+    \begin{lstlisting}
+    $sudo npm install -g lodash
+    \end{lstlisting}
+    A new directory will be created named \textit{node\_modules} it will contain the directory \textit{lodash}. Inside \textit{lodash} you will find JavaScript files, this files contain features and functionalities of lodash. 
+    \item Using lodash. Read about lodash \href{https://lodash.com/}{https://lodash.com/}\\
+    Create a program that returns a random number between 50 and 100, name it demonstration.js 
+    
+    \item Installing nodemon. -g stands for global, this makes nodemon accessible throughout the system 
+    \begin{lstlisting}
+    $ sudo npm install -g nodemon 
+    \end{lstlisting}
+    Nodemon is useful for restarting application. \href{https://nodemon.io/}{https://nodemon.io/}
+    \item Using lodash \\
+    \begin{lstlisting}
+    $ nodemon demonstration.js
+    \end{lstlisting}
+    Typing 'rs' on the promp will restart the program.\\
+    To exit nodemon use "CTRL-C" 
+\end{todolist}
+\section*{Task 3}
+In this task you will create a json file. "A JSON file is a file that stores simple data structures and objects in JavaScript Object Notation (JSON) format, which is a standard data interchange format." \href{https://fileinfo.com/extension/json}{https://fileinfo.com/extension/json} \\
+This is useful when distributing the application. If we want to distribute our application we need to specify the dependencies, that is the packages that were used. 
+\begin{todolist}
+    \item Generate a package.json file 
+    \begin{lstlisting}
+    $ npm init 
+    \end{lstlisting}
+    After running this command you will prompted to add package name, version, description, and much more. You may use the defaults or customize it. 
+    \item Explore the package.json file 
+    \begin{lstlisting}
+    $ vim package.json 
+    \end{lstlisting}
+    This file contains a list of dependencies. 
+    \begin{lstlisting}[title={package.json}]
+    "name": "playground",
+    "version": "1.0.01",
+    description: ""
+    "main": "demonstration.js",
+    "dependencies" : {
+        "lodash": "^4.17.11"
+    },
+    devDependencies" : "{},
+    ...............
+    ...............
+    \end{lstlisting}
+\end{todolist}
+\section*{Task 4}
+This task will show you how to read and write files using the File System 'fs' module. \href{https://nodejs.org/api/fs.html}{https://nodejs.org/api/fs.html}
+\begin{todolist}
+    \item Create a json file named sampleData.json and add the following data. 
+    \begin{lstlisting}[title={sampleData.json}]
+    {
+        "message": "You did it!"
+    }
+    \end{lstlisting} 
+    An object is created. This object has one \textbf{property} named "message". 
+    \item Create a javaScript file named readData.js and add the following code. 
+    \begin{lstlisting}
+    var fs = require('fs')
+    console.log(data.message)
+    var data = require('./sampleData.json','uft-8',(err,data) => {
+        console.log(data)
+    })
+    \end{lstlisting}
+    \item Run readData.js using nodemon 
+    \begin{lstlisting}
+    $ nodemon readData.js
+    \end{lstlisting} 
+\end{todolist}
+\section*{Summary}
+It is important to understand how to use modules. Refer to the following links \href{https://nodejs.org/en/docs/}{https://nodejs.org/en/docs/}, \href{https://www.w3schools.com/nodejs}{https://www.w3schools.com/nodejs}, \href{https://www.npmjs.com/browse/depended}{https://www.npmjs.com/browse/depended}. Different projects require different functionalities and creating your own modules is inefficient. Reusing code can decrease development time and errors. 
+\begin{itemize}
+    \item Continue learning javaScript
+    \item Use the command line as much as possible
+    \item Look up npm packages that may be of use
+    \item Do not reinvent the wheel, use preexisting modules
+\end{itemize}
+\end{document}
