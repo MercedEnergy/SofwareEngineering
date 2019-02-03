@@ -6,3 +6,4 @@ New members read previous meetings files to get up to speed.
 - Alberto Maldonado 
 - Justin Yee
 - Sidharth Babu
+If you make any edits to the tex documents, feel free to add your name as a contributor. 
