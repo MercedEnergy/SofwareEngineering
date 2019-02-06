@@ -175,7 +175,7 @@ This task will show you how to read and write files using the File System 'fs' m
     \item Create a javaScript file named readData.js and add the following code. 
     \begin{lstlisting}
     var fs = require('fs')
-    var data = require('.sampleData.json')
+    var data = require('./sampleData.json')
     console.log(data)
     fs.readFile('./sampleData.json','utf-8',(err,data) => {
         console.log(data)
