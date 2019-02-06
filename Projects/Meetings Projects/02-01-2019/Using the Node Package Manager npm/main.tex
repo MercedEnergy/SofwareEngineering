@@ -54,11 +54,11 @@
 \maketitle
 
 \begin{Objective}
-	At the end of this project one should be able to install, update, and remove packages using npm (node package manager). One should be able to understand how to reuse code, install packages using npm, and use those packages. 
+	At the end of this project one should be able install, update, and remove packages using npm (node package manager). You should be able to understand how to reuse code, install packages using npm, and use those packages. 
 \end{Objective}
 
 \section*{Background}
-  We will be working with the Linux Command Line and using VIM or NANO (text editor). It is assumed that you are running a Ubuntu Distro (Linux Distribution) and have installed node. Reusing code is important in developing programs and npm provides tools and packages; functionalities that have been created by other developers. We assume you are able to get around the Linux file system. Inside the same folder do the following. The version of node used here is v8.11.4 
+  We will be working with the Linux Command Line and VIM or NANO (text editor). It is assumed that you are running a Ubuntu Distro (Linux Distribution) and have installed node. Reusing code is important in developing programs and npm provides tools and packages; functionalities that have been created by other developers. We assume you are able to get around the Linux file system. Inside the same folder do the following. The version of node used here is v8.11.4 
 \section*{Material}
  \color{black}
 \begin{todolist}
@@ -111,6 +111,10 @@ This task will introduce the concept of code reuses. Create a module (small unit
 \section*{Task 2} 
 Creating your own modules has its limitations. Developers around the world have created their modules and packaged them. NPM (node package manager) is used to install packages, such packages are a collection of useful modules. We will install the popular packages. This link provides a list of the most popular packages \href{https://www.npmjs.com/browse/depended}{https://www.npmjs.com/browse/depended}.
 \begin{todolist}
+    \item Make sure to update before installing anything 
+    \begin{lstlisting}
+    $ sudo apt update
+    \end{lstlisting}
     \item Installing lodash 
     \begin{lstlisting}
     $sudo npm install -g lodash
@@ -171,8 +175,9 @@ This task will show you how to read and write files using the File System 'fs' m
     \item Create a javaScript file named readData.js and add the following code. 
     \begin{lstlisting}
     var fs = require('fs')
-    console.log(data.message)
-    var data = require('./sampleData.json','uft-8',(err,data) => {
+    var data = require('.sampleData.json')
+    console.log(data)
+    fs.readFile('./sampleData.json','utf-8',(err,data) => {
         console.log(data)
     })
     \end{lstlisting}
