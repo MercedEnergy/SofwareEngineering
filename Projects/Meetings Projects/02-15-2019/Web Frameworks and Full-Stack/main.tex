@@ -1,0 +1,230 @@
+\documentclass[12pt]{article}
+
+\usepackage{physics}
+\usepackage{siunitx} 
+\usepackage{enumerate} 
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+
+\begin{document}
+
+\title{Web Frameworks and Full-Stack}
+\author{Ramiro Gonzalez}
+\date{Delivery Date : February 15, 2019}
+
+\maketitle
+
+\begin{Objective}
+	At the end of this project one should be able to use express framework, define what a web application and web APIs (Application Programming Interface) is, and understand what constitutes full-stack development. 
+\end{Objective}
+
+\section*{Background}
+  We will be working with the Linux Command Line and VIM or NANO (text editor). It is assumed that you are running a Ubuntu Distro (Linux Distribution) and have installed node. Express.js runs within node. Express allows client to send request to server only, it is not bidirectional. 
+\section*{Material}
+ \color{black}
+\begin{todolist}
+    \item Computer 
+    \item Internet Connection
+    \item Ubuntu Linux (Linux Distribution) 
+\end{todolist}
+\section{Tasks}
+Complete the following tasks. Note that different operating systems may require different steps. 
+\section*{Task 1}
+This task will introduce to frameworks. You will be installing Express.js a web framwork for Node.js. Use the Express.js website for reference.
+\begin{todolist}
+    \item Create a new folder where your files will be stored. 
+\begin{enumerate}
+    \item Create a folder named playground 
+\begin{lstlisting}
+$ mkdir playground 
+$ cd playground 
+\end{lstlisting}
+    \item Create .json file. This is needed to save our dependencies. 
+\begin{lstlisting}
+$ npm init 
+\end{lstlisting}
+    \item Install \href{https://expressjs.com/}{https://expressjs.com/}. The -s saves it to the json file as a dependency. 
+\begin{lstlisting}
+$ npm install -s express 
+\end{lstlisting}
+    \item Create a server. Name it server.js 
+\begin{lstlisting}
+$ vim server.js 
+var express = require('express')
+var app = express()
+app.listen(8080)
+\end{lstlisting} 
+    \item Run server.js and open a browser \href{http://localhost/}{http://localhost:8080} or localIPaddress:8080
+
+\begin{lstlisting}
+$ nodemon server.js 
+\end{lstlisting}
+The server is not serving any content. 
+\end{enumerate}
+    \end{todolist}
+\section*{Task 2} 
+The client-server relationship is where a client request a services or content and a server provides it. Static content as the name implies does not have to be generated, or modified by the server. Static content is CSS, images, or scripts. 
+\begin{todolist}
+    \item In the playground folder, create an html file named index.html. This is the main page, first file to be served by the server.  
+\begin{lstlisting}
+<!doctype html> 
+<head> 
+    <title> Sample Page </title> 
+<head> 
+<-- This is a comment --> 
+<body> 
+    <h1> Hello World</h1> 
+</body> 
+</html> 
+\end{lstlisting}
+    \item To serve the static file (index.html), we must use the \textit{app.use()} function. Add this to server.js 
+\begin{lstlisting}
+var express = require('express')
+var app = express()
+app.use(express.static(__dirname))
+app.listen(8080)
+\end{lstlisting}
+    \textbf{\_\_dirname} is always the directory in which the currently executing. 
+    \item Learn the difference between static and dynamic content. \\ \\
+    Static web page is just like a poster, while a dynamic web page changes perpetually or when the a client (user) interacts with it. 
+    
+    \item Run server.js and open a browser \href{http://localhost/}{http://localhost:8080} or localIPaddress:8080
+\begin{lstlisting}
+$ nodemon server.js 
+\end{lstlisting}
+The server is serving static content (index.html page) 
+\end{todolist}
+\section*{Task 3}
+\textbf{Frontend development} uses HTML, CSS, and JavaScript as technologies for development,this is the graphical component and user interaction. \textbf{HTML - Hyper Text Markup Language} is a markup language it is based on the \textbf{DOM - Document Object Model}. HTML provides information on how a page will look. \\
+
+\begin{todolist}
+\item (Optional) Copying to index.html if using non-gui ubuntu server. 
+    \begin{itemize}
+        \item Download or Open WinSCP
+        \item Find the servers local ip address using \textif{ifconfig}
+        \item Connect using hostname (localip), username, password
+        \item Open index.html with WinSCP
+        \item Copy and paste
+    \end{itemize}
+    \item Open index.html, and add boostrap by copying the style sheet $<$link$>$ Go to \color{red}\href{https://getbootstrap.com/docs/4.3/getting-started/introduction}{https://getbootstrap.com/docs/4.3/getting-started/introduction} \color{black}, under CSS. It should be as follows.  
+\begin{lstlisting}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+\end{lstlisting}
+    \item Jquery is a widely deployed JavaScript library. Some components such as buttons, navigatioin, and display require  \color{red}\href{https://jquery.com/}{jQuery}\color{black}, \color{red}\href{https://cdnjs.com/}{cdnjs.com} \color{black}, and \color{red}\href{https://www.bootstrapcdn.com/}{bootstrapCDN}\color{black}. Add them to the index.html document. 
+\begin{lstlisting}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+\end{lstlisting}
+Copied from \color{red}\href{https://getbootstrap.com/docs/4.3/getting-started/introduction/}{https://getbootstrap.com/docs/4.3/getting-started/introduction} \color{black} under JS. 
+    \item The index.html document should be as follows.
+\begin{lstlisting}
+<!doctype html> 
+<-- Insert Style Sheet <link> here --> 
+<--Insert Scripts here --> 
+<head> 
+    <title> Sample Page </title> 
+<head> 
+<body> 
+    <h1> Hello World</h1> 
+</body> 
+</html> 
+\end{lstlisting}
+\end{todolist}
+\section*{Task 4}
+\begin{todolist}
+    \item (Optional) The following line refreshes the webpage. Add inside $<$head$>$ 
+    \begin{lstlisting}
+    <meta http-equiv="refresh" content="20"/> 
+    \end{lstlisting}
+    \begin{itemize}
+        \item Open a browser localip:8080 or localhost:8080
+        \item Open the index.html on a document editor, every time it is saved the changes will show on the browser every 20 seconds. 
+    \end{itemize}
+    \item Create a container. Add to index.html inside the $<$body$> $ \\
+     "A jumbotron indicates a big box for calling extra attention to some special content or information.". Add a heading, input box, and button. 
+\begin{lstlisting}
+<body> 
+<di> 
+    <br> 
+    <div class="jumbotron"> 
+        <h1 class="display-4">How may I help you? </h1> 
+        <br> 
+        <input class="form-control" placeholder="Enter Something"> </input> 
+        <br> 
+        <button class="btn btn-danger"> Send Message </button> 
+    </div> 
+</div> 
+</body> 
+\end{lstlisting}
+    Changing \textit{line 9} to "btn btn-success" would change the color of the button from red to green. 
+    \item Under the jumbotron div (\textit{line 10}) add a new $<$div$>$
+\begin{lstlisting}
+<div id="messages"> 
+</div> 
+\end{lstlisting}
+    \item  Add a $<$footer$>$ below \textit{Line 12} $</\text{body}>$ and add the following script. Generally scripts should be added at the end, so that needed elements are loaded. 
+    \begin{lstlisting}
+<footer> 
+<script> 
+    $(() => {
+        addMessages({name: 'MyName',message :'Welcome'})
+    })
+    function addMessages(message){
+        $("#messages").append(`<h4> ${message.name} </h4> <P> ${message.message} </p>`)
+    }
+</script> 
+</footer> 
+\end{lstlisting}
+\end{todolist}
+\section*{Task 5}
+Consider the following definitions. 
+\begin{todolist}
+\item \textbf{Backend developement} refers to tasks done by a server, such as calculations and data processing. Programming language such as Python, Ruby or SQL are essential to backend development. 
+ \item \textbf{Fullstack development} to fullstack development one must understand the technologies used in frontend and backend. Must be profient at server, networks, user interface, and the business side of things.  
+\end{todolist}
+
+\section*{Summary}
+A framework makes functionalities accessible to the programmer, such functionalities may be extended or selectively changed but not modified. expres.js is a framework designed to build web applications.JavaScript libraries are used to change how elements in an html page are displayed. 
+\ Refer to this link \color{red}\href{https://www.upwork.com/hiring/for-clients/frontend-vs-backend-web-development/}{Frontend vs. Backend}\color{black} 
+
+\end{document}
